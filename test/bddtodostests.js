@@ -38,15 +38,15 @@ describe("BDD Todos Component", () => {
 		  ]
 	})
 
-	it("It creates", async () => {
+	it("creates itself", async () => {
 		const f = document.createElement('bdd-todos');
 		expect(f).toBeTruthy();
 	})
-	it("It creates a template in the shadow root", async () => {
+	it("creates a template in the shadow root", async () => {
 		const f = document.createElement('bdd-todos');
 		expect(f.shadowRoot.innerHTML).toEqual('<template id="bdd-todos-template"><button id="gettodos">Get Todos</button></template><button id="gettodos">Get Todos</button>');
 	})
-	it("It fires a button_click function when the button is clicked", async () => {
+	it("fires a button_click function when the button is clicked", async () => {
 		const f = document.createElement('bdd-todos');
 		/*Create our synthetic button click here*/
 		var e = new Event('MouseEvent',{ type: 'click', button: 0 });
@@ -110,7 +110,7 @@ describe("BDD Todos Component REST API Tests", () => {
 		var b = f.shadowRoot.getElementById('gettodos');
 		b.dispatchEvent(e);
 	})
-	it("It calls a Rest API when the button is clicked", async() => {
+	it("calls a Rest API when the button is clicked", async() => {
 		expect(window.fetch).toHaveBeenCalledTimes(1);
 		expect(f.todos).toEqual(promisedData);
 	})
